@@ -18,7 +18,6 @@ import { AsideComponent } from './aside/aside.component';
     HeaderComponent,
     FooterComponent,
     AsideComponent
-    // CommentComponent,
     // CommentFormComponent,
     // CommentThreadComponent
   ],

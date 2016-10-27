@@ -13,6 +13,9 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
+  toggleSearch: boolean = false;
+  toggleNav: boolean = false;
+  
   ngOnInit() {
   }
 

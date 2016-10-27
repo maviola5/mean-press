@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { SingleComponent } from './single/single.component';
 import { CategoryComponent } from './category/category.component';
 
+import { Http, Response } from '@angular/http';
+
 // comment components
 import { CommentComponent } from './comment/comment.component';
 import { CommentFormComponent } from './comment-form/comment-form.component';

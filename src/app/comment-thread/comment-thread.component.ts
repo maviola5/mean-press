@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { CommentComponent } from '../comment/comment.component';
+
+import { Comment } from '../comment';
+
+const COMMENTS: Comment[] = [
+  { id: 11, name: 'Mr. Nice', timestamp: 'December 30, 2016', content: '<p>Hello World</p>' },
+  { id: 11, name: 'Mr. Nice', timestamp: 'December 30, 2016', content: '<p>Hello World</p>' },
+  { id: 11, name: 'Mr. Nice', timestamp: 'December 30, 2016', content: '<p>Hello World</p>' },
+  { id: 11, name: 'Mr. Nice', timestamp: 'December 30, 2016', content: '<p>Hello World</p>' }
+];
 
 @Component({
   selector: 'comment-thread',
@@ -9,8 +19,15 @@ import { Component, OnInit } from '@angular/core';
   }
 })
 export class CommentThreadComponent implements OnInit {
+  comments: Comment[];
 
-  constructor() { }
+	
+
+
+
+  constructor(comments: Comment[]) { 
+    this.comments = COMMENTS;
+  }
 
   ngOnInit() {
   }

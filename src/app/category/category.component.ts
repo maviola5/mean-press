@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-category',
+  selector: 'article',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.css'],
+  host : {
+  	'class' : 'article'
+  }
 })
 export class CategoryComponent implements OnInit {
 

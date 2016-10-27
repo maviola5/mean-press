@@ -1,14 +1,14 @@
 <div class="block brand">
 	<div class="content">
 		<h1>
-			<a href="/">MEAN Press</a>
+			<a [routerLink]="['/']">MEAN Press</a>
 		</h1>
-		<div class="navicon">
+		<div class="navicon" (click)="toggleNav = !toggleNav">
 			<i class="fa fa-bars" aria-hidden="true"></i>
 		</div>
 	</div>
 </div>
-<div class="block nav vert-center" id="navigation">
+<div class="block nav vert-center" id="navigation" [class.is-active]="toggleNav">
 	<div class="content">
 		<nav class="header__nav">
 			<ul class="header__ul">
@@ -28,8 +28,8 @@
 <div class="block search">
 	<div class="content">
 		<div class="search-box">
-			<input class="search-input" type="text" placeholder="Search...">
-			<i class="fa fa-search search-button" aria-hidden="true"></i>
+			<input class="search-input" type="text" placeholder="Search..." [class.is-active]="toggleSearch">
+			<i class="fa fa-search search-button" aria-hidden="true" (click)="toggleSearch = !toggleSearch" [class.is-active]="toggleSearch"></i>
 		</div>
 	</div>
 </div>
