@@ -6,7 +6,8 @@ import { Post } from './post';
 import { Author } from './author';
 import { Category } from './category';
 
-export var WORDPRESS_API_URL: string = 'http://localhost/wordpress_nacd/wp-json/wp/v2/';
+// export var WORDPRESS_API_URL: string = 'http://localhost/wordpress_nacd/wp-json/wp/v2/';
+export var WORDPRESS_API_URL: string = 'http://192.168.100.116:8888/wordpress/wp-json/wp/v2/';
 
 @Injectable()
 export class WordPressService {
@@ -17,7 +18,7 @@ export class WordPressService {
 	){}
 
 	getPosts(): Observable<Post[]>{
-		let url: string = `${this.apiUrl}posts?per_page=100`;
+		let url: string = `${this.apiUrl}posts?per_page=3`;
 
 		return this.http.get(url)
 			.map((response: Response) => {

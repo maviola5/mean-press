@@ -2,4 +2,4 @@
 	<a [innerHtml]="post.title"></a>
 </h1>
 <p class="post-meta">{{ post.authorName }} | {{ post.date | date }}</p>
-<div [innerHtml]="post.content"></div>
+<p [innerHtml]="post.excerpt" class="post-excerpt"></p>
