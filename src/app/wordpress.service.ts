@@ -6,8 +6,8 @@ import { Post } from './post';
 import { Author } from './author';
 import { Category } from './category';
 
-// export var WORDPRESS_API_URL: string = 'http://localhost/wordpress_nacd/wp-json/wp/v2/';
-export var WORDPRESS_API_URL: string = 'http://192.168.100.116:8888/wordpress/wp-json/wp/v2/';
+export var WORDPRESS_API_URL: string = 'http://localhost/wordpress_nacd/wp-json/wp/v2/';
+// export var WORDPRESS_API_URL: string = 'http://192.168.100.116:8888/wordpress/wp-json/wp/v2/';
 
 @Injectable()
 export class WordPressService {
@@ -18,7 +18,7 @@ export class WordPressService {
 	){}
 
 	getPosts(): Observable<Post[]>{
-		let url: string = `${this.apiUrl}posts?per_page=3`;
+		let url: string = `${this.apiUrl}posts?per_page=5`;
 
 		return this.http.get(url)
 			.map((response: Response) => {
@@ -37,6 +37,27 @@ export class WordPressService {
 			});
 	}
 
+	getPost(id: number): Observable<Post> {
+		let queryUrl = `${this.apiUrl}posts/${id}`;
+
+		return this.http.get(queryUrl)
+			.map((response: Response) => {
+				return (<any>response.json()).map(item => {
+					return new Post({
+						id: item.id,
+						date: item.date,
+						title: item.title.rendered,
+						content: item.content.rendered,
+						excerpt: item.excerpt.rendered,
+						author: item.author,
+						categories: item.categories,
+						tags: item.tags
+					});
+				});
+			});
+
+	}
+
 	getAuthors(): Observable<Author[]>{
 		let url: string = `${this.apiUrl}users?per_page=100`;
 
@@ -49,6 +70,20 @@ export class WordPressService {
 					});
 				});
 			});
+	}
+
+	getAuthor(id: number): Observable<Author> {
+		let queryUrl: string = `${this.apiUrl}author/${id}`;
+
+		return this.http.get(queryUrl)
+			.map((response: Response) => {
+				return (<any>response.json()).map(item => {
+					return new Author({
+						id: item.id,
+						name: item.name
+					});
+				})
+			})
 	}
 
 	getCategories(): Observable<Category[]>{

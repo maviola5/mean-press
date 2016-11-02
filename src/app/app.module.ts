@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 // Services
@@ -30,7 +30,7 @@ import { PostComponent } from './post/post.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'single', component: SingleComponent },
+  { path: 'post/:id', component: SingleComponent },
   { path: 'category', component: CategoryComponent }
 ];
 

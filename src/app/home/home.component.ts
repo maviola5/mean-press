@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../post';
+import { Author } from '../author';
 import { WordPressService } from '../wordpress.service';
 import { Http, Response } from '@angular/http';
 
