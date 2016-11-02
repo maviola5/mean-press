@@ -2,26 +2,22 @@
 	<div class="content">
 		<h2>Categories</h2>
 		<ul class="menu__ul">
-			<li class="menu__li">
-				<a class="menu__a" [routerLink]="['category']">Work</a>
-			</li>
-			<li class="menu__li">
-				<a class="menu__a" [routerLink]="['category']">Work</a>
-			</li>
-			<li class="menu__li">
-				<a class="menu__a" [routerLink]="['category']">Work</a>
+			<li class="menu__li"
+			*ngFor="let category of categories">
+				<a class="menu__a" [routerLink]="['/categories', category.id]" [innerHtml]="category.name"></a>
 			</li>
 		</ul>
+		<!-- <h2>Authors</h2>
+		<ul class="menu__ul">
+			<li class="menu__li"
+			*ngFor="let author of authors">
+				<a class="menu__a" [routerLink]="['/authors', author.id]">{{ author.name }}</a>
+			</li>
+		</ul> -->
 		<h2>Recent Posts</h2>
-		<div class="card">
-			<h1>
-				<a href="single">Post Title: Important</a>
-			</h1>
-			<p>
-				<span class="post-category">Post Category &nbsp; | &nbsp; </span>
-				<span class="post-author">Author Name &nbsp; | &nbsp; </span>
-				<span class="post-date">December 30, 2016</span>
-			</p>
-		</div>
+		<post
+		*ngFor="let post of posts"
+		[post]="post">
+		</post>
 	</div>
 </div>

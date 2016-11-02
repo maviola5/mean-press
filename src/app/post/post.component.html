@@ -1,5 +1,6 @@
 <h1 class="post-title">
-	<a [innerHtml]="post.title" [routerLink]="['/post', post.id]"></a>
+	<a [innerHtml]="post.title" [routerLink]="['/posts', post.id]"></a>
 </h1>
 <p class="post-meta">{{ post.authorName }} | {{ post.date | date }}</p>
-<p [innerHtml]="post.excerpt" class="post-excerpt"></p>
+<p class="post-excerpt" [innerHtml]="post.excerpt" *ngIf="post.excerpt"></p>
+<p class="post-content" [innerHtml]="post.content" *ngIf="post.content"></p>

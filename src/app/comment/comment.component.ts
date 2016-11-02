@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Comment } from '../comment';
+import { Comment } from '../wordpress.service';
 
 @Component({
   selector: 'comment',

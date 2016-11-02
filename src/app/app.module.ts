@@ -26,12 +26,14 @@ import { CommentComponent } from './comment/comment.component';
 import { CommentFormComponent } from './comment-form/comment-form.component';
 import { CommentThreadComponent } from './comment-thread/comment-thread.component';
 import { PostComponent } from './post/post.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'post/:id', component: SingleComponent },
-  { path: 'category', component: CategoryComponent }
+  { path: 'category', component: CategoryComponent },
+  { path: 'posts/:id', component: SingleComponent },
+  { path: '', component: HomeComponent }
+   // { path: '', redirectTo: '', pathMatch: 'full' },
+  // { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -46,7 +48,8 @@ const routes: Routes = [
     CommentComponent,
     CommentFormComponent,
     CommentThreadComponent,
-    PostComponent
+    PostComponent,
+    SearchBoxComponent
   ],
   exports: [RouterModule],
   imports: [

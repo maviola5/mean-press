@@ -1,38 +1,33 @@
 import { 
 	Component, 
-	OnInit, 
-	Input,
+	OnInit,
+	Output,
 	ElementRef,
-	EventEmitter 
+	EventEmitter
 } from '@angular/core';
-import { WordPressService, Post, Author } from '../wordpress.service';
-import { Http, Response } from '@angular/http';
-// import { Observable } from 'rxjs';
+import { WordPressService, Post, Authors } from '../wordpress.service';
+// import { } from 
 
 @Component({
-	selector: 'article',
-	templateUrl: './home.component.html',
-	styleUrls: ['./home.component.css'],
-	host : {
-		'class' : 'article home'
-	}
+	selector: 'app-search-box',
+	templateUrl: './search-box.component.html',
+	styleUrls: ['./search-box.component.css']
 })
-export class HomeComponent implements OnInit {
-	@Input() posts: Post[];
-	authors: Author[];
+export class SearchBoxComponent implements OnInit {
+	@Output() searchResults: EventEmitter<Post[]> = new EventEmitter<Post[]>();
 
 	constructor(
-		public wordpress: WordPressService
+		public wordpress: WordPressService,
+		private el: ElementRef
 	) {}
 
 	ngOnInit() {
-
 		//init request
 		this.wordpress.getPosts()
 			.subscribe(
 				(results: Post[]) => {
-					this.posts = results;
-					this.posts = this.posts.map(item => {
+					// this.searchResults = results;
+					this.searchResults = this.searchResults.map(item => {
 						return new Post({
 							id: item.id,
 							title: item.title,
@@ -65,7 +60,6 @@ export class HomeComponent implements OnInit {
 						);
 				}
 			);
-		 
 	}
 
 }

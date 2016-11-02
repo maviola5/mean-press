@@ -13,14 +13,14 @@
 		<nav class="header__nav">
 			<ul class="header__ul">
 				<li class="header__li">
-					<a class="header__a" [routerLink]="['home']">Home</a>
+					<a class="header__a" [routerLink]="['/']" routerLinkActive="active">Home</a>
 				</li>
-				<li class="header__li">
-					<a class="header__a" [routerLink]="['single']">Single</a>
-				</li>
-				<li class="header__li">
-					<a class="header__a" [routerLink]="['category']">Category</a>
-				</li>
+		<!-- 		<li class="header__li">
+					<a class="header__a" [routerLink]="['/single']" routerLinkActive="active">Single</a>
+				</li> -->
+				<!-- <li class="header__li">
+					<a class="header__a" [routerLink]="['category']" routerLinkActive="active">Category</a>
+				</li> -->
 			</ul>
 		</nav>
 	</div>
@@ -28,7 +28,7 @@
 <div class="block search">
 	<div class="content">
 		<div class="search-box">
-			<input class="search-input" type="text" placeholder="Search..." [class.is-active]="toggleSearch">
+			<search-box><search-box>
 			<i class="fa fa-search search-button" aria-hidden="true" (click)="toggleSearch = !toggleSearch" [class.is-active]="toggleSearch"></i>
 		</div>
 	</div>

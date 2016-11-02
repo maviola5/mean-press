@@ -1,9 +1,7 @@
 <div class="content">
-	<div class="card">
-		<post [post]="post">
+		<post 
+		*ngIf="post"
+		[post]="post">
 		</post>
-	</div>
-	<comment-thread></comment-thread>
-	<comment-form></comment-form>
 </div>
 
